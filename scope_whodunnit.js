@@ -126,3 +126,97 @@
 
 //Output is 'The murderer is Mrs White' because when the changeMurderer function is called, the plotTwist function that is inside changeMurderer is also called.
 //This means that the murderer is change to Mrs White and not Mr Green when changeMurderer is called.
+
+//#### Episode 7
+
+
+// let murderer = 'Professor Plum';
+
+// const changeMurderer = function() {
+//   murderer = 'Mr. Green';
+
+//   const plotTwist = function() {
+//     let murderer = 'Colonel Mustard';
+
+//     const unexpectedOutcome = function() {
+//       murderer = 'Miss Scarlet';
+//     }
+
+//     unexpectedOutcome();
+//   }
+
+//   plotTwist();
+// }
+
+// const declareMurderer = function() {
+//   return `The murderer is ${murderer}.`;
+// }
+
+// changeMurderer();
+// const verdict = declareMurderer();
+// console.log(verdict);
+
+//Output is 'The murderer is Miss Scarlett' because when changeMurderer is called the nested functions inside it are also called and 
+//they change the murderer to be Miss Scarlett.
+
+
+//#### Episode 8
+
+
+// const scenario = {
+//   murderer: 'Mrs. Peacock',
+//   room: 'Conservatory',
+//   weapon: 'Lead Pipe'
+// };
+
+// const changeScenario = function() {
+//   scenario.murderer = 'Mrs. Peacock';
+//   scenario.room = 'Dining Room';
+
+//   const plotTwist = function(room) {
+//     if (scenario.room === room) {
+//       scenario.murderer = 'Colonel Mustard';
+//     }
+
+//     const unexpectedOutcome = function(murderer) {
+//       if (scenario.murderer === murderer) {
+//         scenario.weapon = 'Candle Stick';
+//       }
+//     }
+
+//     unexpectedOutcome('Colonel Mustard');
+//   }
+
+//   plotTwist('Dining Room');
+// }
+
+// const declareWeapon = function() {
+//   return `The weapon is ${scenario.weapon}.`
+// }
+
+// changeScenario();
+// const verdict = declareWeapon();
+// console.log(verdict);
+
+//Output is 'The weapon is Lead Pipe'. This is because the initial values set when changeScenario is called are used.
+
+
+//#### Episode 9
+
+
+let murderer = 'Professor Plum';
+
+if (murderer === 'Professor Plum') {
+  let murderer = 'Mrs. Peacock';
+}
+
+const declareMurderer = function() {
+  return `The murderer is ${murderer}.`;
+}
+
+const verdict = declareMurderer();
+console.log(verdict);
+
+//Output is 'The murderer is Professor Plum' because the value of the murderer variable is only changed within the scope of the 'if' statement.
+//Once the 'if' statement has been run the value reverts back. Also the 'if' statement is not called by any function and may should not have
+//any bearing on the outcome of the end statement.
